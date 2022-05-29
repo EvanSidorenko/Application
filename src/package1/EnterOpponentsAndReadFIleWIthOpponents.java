@@ -1,36 +1,30 @@
 package package1;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.*;
+public class EnterOpponentsAndReadFIleWIthOpponents {
+    public static void enterNumberOfOpponents() {
 
-public class ReadFile {
-    public void readFile() throws FileNotFoundException {
-        File file = new File("opponents.txt");
-
-        Scanner fileScanner = new Scanner(file);
-        String scanOpponents = fileScanner.nextLine();
-        String[] arrayOpponents = scanOpponents.split(" ");
-
-        List<String> listOpponents = Arrays.asList(arrayOpponents);
-        Collections.shuffle(listOpponents);
-        ArrayList<String> listOfOpponents = new ArrayList<>();
-    }
-    public void scanFile() {
         Scanner pressEnter = new Scanner(System.in);
-        int i = 0;
+        System.out.println("Нажми Enter для того, чтобы сесть за виртуальный стол!");
+        pressEnter.nextLine();
 
+        System.out.println("Отлично, вот ты и за столом!");
+        System.out.println("Теперь, нужно выбрать количество оппонентов от 2 до 5:");
+        Scanner opponentsScan = new Scanner(System.in);
+
+        Opponents.numberOfOpponents = opponentsScan.nextInt();
+        FileWithOpponents file = new FileWithOpponents();
+        int i = 0;
         while (true) {
-            Scanner opponentsScan = new Scanner(System.in);
-            Opponents.numberOfOpponents = opponentsScan.nextInt();
             try {
                 if (Opponents.numberOfOpponents < 2 | Opponents.numberOfOpponents > 5) {
                     System.out.println("Пожалуйста, введи количество от 2 до 5...");
                 } else if (Opponents.numberOfOpponents >= 2 | Opponents.numberOfOpponents <= 5) {
                     try {
                         while (Opponents.numberOfOpponents > i) {
-
+                            System.out.println("Ты играешь против " + Opponents.numberOfOpponents + " игроков:");
+                            file.readFile();
+                            break;
                         }
                     } catch (Exception e) {
                         System.out.println("Пожалуйста, введи число, а не текст.");
@@ -44,5 +38,10 @@ public class ReadFile {
                 System.exit(1);
             }
         }
+
+
+        }
     }
-}
+
+
+

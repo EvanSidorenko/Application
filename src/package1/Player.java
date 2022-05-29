@@ -7,5 +7,5 @@ public class Player {
      static int firstRoundResult;
      static int secoundRoundResult;
      static int thirdRoundResult;
-     static int playerResults;
+     static int playerSumResults;
 }
