@@ -1,6 +1,5 @@
 package package1;
 
 public class Opponents {
-    static int  numberOfOppenents;
-
+    static int  numberOfOpponents;
 }
